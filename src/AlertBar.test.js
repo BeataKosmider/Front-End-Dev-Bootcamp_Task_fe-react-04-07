@@ -5,18 +5,22 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('List tests', () => {
+describe('AlertBar tests', () => {
   let wrapper;
 
-  it('Poprawnie wyświetla licznik w H1', () => {
+  beforeEach(() => {
     wrapper = mount(<AlertBar />);
-    expect(wrapper.find('h1').text()).toBe("5")
   });
 
-  it('Poprawnie wyświetla Boom! w H1', () => {
-    wrapper = mount(<AlertBar />);
-    setTimeout(() => {
-      expect(wrapper.find('h1').text()).toBe("fBoom!");
-    }, 5000)
+  it('Wyświetla alert bar jeśli nie został kliknięty przycisk', () => {
+    expect(wrapper.find('div').exists()).toBe(true);
+  });
+
+  it('NIE wyświetla alert bar jeśli przycisk został kliknięty', () => {
+    const button = wrapper.find('button');
+
+    button.simulate('click');
+
+    expect(wrapper.find('div').exists()).toBe(false);
   });
 });
