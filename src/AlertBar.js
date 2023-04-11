@@ -1,24 +1,28 @@
-import React from 'react';
+import React from "react";
 
 class AlertBar extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
-      isVisible: true
-    }
+      showAlert: true,
+    };
   }
 
   hideBar = () => {
-
-  }
+    let { showAlert } = this.state;
+    showAlert = !showAlert;
+    this.setState({ showAlert });
+  };
 
   render() {
-    if (this.state.isVisible) {
-      return <div>
-      <p>dasda</p>
-      <button onClick={this.hideBar}>dsada</button>
-    </div>
+    if (this.state.showAlert) {
+      return (
+        <div>
+          <p>alert text</p>
+          <button onClick={this.hideBar}>X</button>
+        </div>
+      );
     } else {
       return;
     }
