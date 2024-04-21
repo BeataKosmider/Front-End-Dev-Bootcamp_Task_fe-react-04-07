@@ -1,3 +1,5 @@
+Przygotuj diva, który będzie alert barem (AlertBar, div). Powinien w nim znaleźć się paragraf z dowolnym tekstem. Umieść w nim dodatkowo button z tekstem w środku “X”. Po kliknięciu w niego, cały alert powinien zniknąć.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
